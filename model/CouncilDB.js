@@ -15,4 +15,9 @@ let updata = (updatedata,ID) => {
     return knex('council_details').update(updatedata).where('ID',ID)
 };
 
-module.exports = {post_data,getid,updata}
+// 4
+let get_data = (search) => { 
+    return knex.select('*').from('council_details').where('STUDENT_NAME','like',  '%' +search+ '%')
+};
+
+module.exports = {post_data,getid,updata,get_data}

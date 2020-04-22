@@ -44,4 +44,15 @@ council.put('/update/:ID' ,(req,res) => {
     })
 });
 
+// 4
+council.get('/get/:search', (req,res) => {
+    var search = req.params.search
+    CouncilDB.get_data(search)
+    .then((Response) => {
+        res.send(Response)
+    }).catch((err) => {
+        res.send(err)
+    })
+});
+
 module.exports = council
