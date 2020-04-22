@@ -10,4 +10,9 @@ let getid = (ID) => {
     return knex('council_details').select('*').where('ID',ID)
 };
 
-module.exports = {post_data,getid}
+// 3
+let updata = (updatedata,ID) => {
+    return knex('council_details').update(updatedata).where('ID',ID)
+};
+
+module.exports = {post_data,getid,updata}

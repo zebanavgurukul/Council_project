@@ -11,7 +11,7 @@ council.post('/postdata',(req,res) => {
     }
     CouncilDB.post_data(insertdata)
     .then(() => {
-        res.send('insert')
+        res.send('insert.....')
     }).catch((err) => {
         res.send(err)
     })
@@ -23,6 +23,22 @@ council.get('/getdata/:ID', (req,res) => {
     CouncilDB.getid(ID)
     .then((Response) => {
         res.send(Response)
+    }).catch((err) => {
+        res.send(err)
+    })
+});
+
+// 3
+council.put('/update/:ID' ,(req,res) => {
+    var ID = req.params.ID
+    let updatedata = {
+        STUDENT_NAME : req.body.STUDENT_NAME,
+        COUNCIL_POST : req.body.COUNCIL_POST,
+        COUNCIL_START_DATE : req.body.COUNCIL_START_DATE
+    }
+    CouncilDB.updata(updatedata,ID)
+    .then(() => {
+        res.send('update....')
     }).catch((err) => {
         res.send(err)
     })
