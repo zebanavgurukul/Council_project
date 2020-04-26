@@ -20,4 +20,9 @@ let get_data = (search) => {
     return knex.select('*').from('council_details').where('STUDENT_NAME','like',  '%' +search+ '%')
 };
 
-module.exports = {post_data,getid,updata,get_data}
+// 5
+let getDate = () => {
+    return knex.select('*').from('council_details')
+};
+
+module.exports = {post_data,getid,updata,get_data,getDate} 

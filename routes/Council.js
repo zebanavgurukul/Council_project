@@ -55,4 +55,21 @@ council.get('/get/:search', (req,res) => {
     })
 });
 
+// 5
+council.get('/getData', (req,res) => {
+    CouncilDB.getDate()
+    .then((Response) => {
+        let COUNCIL_START_DATE = Response[0]['COUNCIL_START_DATE']
+        if (COUNCIL_START_DATE == '3 month'){
+            var minDate = new Date(); 
+            minDate.setMonth(minDate.getMonth() + 3);
+            console.log(minDate)
+            console.log('should be changed council members');
+            res.send("should be changed council members")
+        }
+    }).catch((err) => {
+        res.send(err)
+    })
+});
+
 module.exports = council

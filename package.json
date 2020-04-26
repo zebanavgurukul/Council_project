@@ -12,5 +12,8 @@
     "express": "^4.17.1",
     "knex": "^0.21.0",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.2"
   }
 }
