@@ -98,4 +98,20 @@ council.get('/getapi/:search', (req,res) => {
     })
 });
 
+// 8
+council.put('/putApi/:ID',(req,res) => {
+    let ID = req.params.ID
+    let data = {
+        Council_members_Work_in_Hindi : req.body.Council_members_Work_in_Hindi,
+        Council_members_Work_in_English : req.body.Council_members_Work_in_English,
+        COUNCIL_POST : req.body.COUNCIL_POST
+    }
+    CouncilDB.put(data,ID)
+    .then(() => {
+        res.send('update....')
+    }).catch((err) => {
+        res.send(err)
+    })
+});
+
 module.exports = council
