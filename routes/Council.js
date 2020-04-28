@@ -72,4 +72,19 @@ council.get('/getData', (req,res) => {
     })
 });
 
+// 6
+council.post('/postApi',(req,res) => {
+    let data = {
+        Council_members_Work_in_Hindi : req.body.Council_members_Work_in_Hindi,
+        Council_members_Work_in_English : req.body.Council_members_Work_in_English,
+        COUNCIL_POST : req.body.COUNCIL_POST
+    }
+    CouncilDB.postData(data)
+    .then(() => {
+        res.send('insert....')
+    }).catch((err) => {
+        res.send(err)
+    })
+});
+
 module.exports = council

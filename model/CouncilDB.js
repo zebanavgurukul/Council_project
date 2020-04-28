@@ -25,4 +25,9 @@ let getDate = () => {
     return knex.select('*').from('council_details')
 };
 
-module.exports = {post_data,getid,updata,get_data,getDate} 
+// 6
+let postData = (Data) => {
+    return knex('Council_Work').insert(Data)
+};
+
+module.exports = {post_data,getid,updata,get_data,getDate,postData} 
