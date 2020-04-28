@@ -30,4 +30,9 @@ let postData = (Data) => {
     return knex('Council_Work').insert(Data)
 };
 
-module.exports = {post_data,getid,updata,get_data,getDate,postData} 
+// 7
+let getdata = (search) => { 
+    return knex.select('*').from('Council_Work').where('COUNCIL_POST','like',  '%' +search+ '%')
+};
+
+module.exports = {post_data,getid,updata,get_data,getDate,postData,getdata} 

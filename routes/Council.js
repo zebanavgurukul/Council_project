@@ -87,4 +87,15 @@ council.post('/postApi',(req,res) => {
     })
 });
 
+// 7
+council.get('/getapi/:search', (req,res) => {
+    var search = req.params.search
+    CouncilDB.getdata(search)
+    .then((Response) => {
+        res.send(Response)
+    }).catch((err) => {
+        res.send(err)
+    })
+});
+
 module.exports = council
